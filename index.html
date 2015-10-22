@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="...">
+		<title>Chuva - Jaraguá do Sul</title>
+		<style type="text/css">
+
+			body {
+    		background-image:url("image.jpg");
+    		background-repeat: no-repeat;
+    		background-size: 100% 100%;
+    		overflow:hidden;
+			}
+			html {
+    		height: 100%
+			}
+
+			html{height:100%;}
+
+
+		.drop {
+	  	background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+  		background: -moz-linear-gradient(top, rgba(13,52,58,1) 100%, rgba(255,255,255,.6) 100%);
+			width:1px;
+			height:89px;
+			position: absolute;
+			bottom:200px;
+			-webkit-animation: fall .63s linear infinite;
+  		-moz-animation: fall .63s linear infinite;
+		}
+
+		@-webkit-keyframes fall {
+			to {margin-top:900px;}
+		}
+
+		@-moz-keyframes fall {
+			to {margin-top:900px;}
+		}
+
+
+		</style>
+  </head>
+	<body>
+		<section class="rain"></section>
+		<script src="jquery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			var nbDrop = 858;
+
+			function randRange( minNum, maxNum) {
+			  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+			}
+
+			function createRain() {
+				for( i=1;i<nbDrop;i++) {
+				var dropLeft = randRange(0,3000);
+				var dropTop = randRange(-1000,1400);
+				$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+				$('#drop'+i).css('left',dropLeft);
+				$('#drop'+i).css('top',dropTop);
+				}
+			}
+
+			createRain();
+	</script>
+	</body>
+</html>
+
